@@ -23,7 +23,7 @@ import butterknife.OnClick;
  */
 
 public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<Meal> mMeals = DataUtils.meals();;
+    private List<Meal> mMeals = DataUtils.meals();
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -67,6 +67,12 @@ public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     mBinding.getMeal().getUsername(),
                     mBinding.getMeal().getAvatar()));
         }
+
+        @OnClick(R.id.tvOrder)
+        public void onOrderClick() {
+            EventBus.getDefault().post(new OrderEvent(mBinding.getMeal().getImage(),
+                    mBinding.ivMeal));
+        }
     }
 
     public class MealDetailEvent {
@@ -76,6 +82,16 @@ public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public MealDetailEvent(ImageView imageView, Meal meal) {
             this.imageView = imageView;
             this.meal = meal;
+        }
+    }
+
+    public class OrderEvent {
+        public final String image;
+        public final ImageView imageView;
+
+        public OrderEvent(String image, ImageView imageView) {
+            this.image = image;
+            this.imageView = imageView;
         }
     }
 
