@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="apidez.com.animation.model.Meal" />
-
         <variable
             name="meal"
             type="Meal" />
@@ -40,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/space_small"
+                android:layout_marginBottom="@dimen/space_small"
                 android:layout_marginRight="@dimen/space_small">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -60,37 +59,23 @@
                     android:layout_toRightOf="@id/ivAvatar"
                     android:text="@{meal.title}"
                     android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/size_large"
+                    android:textSize="@dimen/size_normal"
                     tools:text="Card Title" />
 
-                <TextView
-                    android:id="@+id/tvRestaurant"
+                <android.support.v7.widget.AppCompatRatingBar
+                    style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvTitle"
-                    android:layout_marginLeft="@dimen/space_small"
+                    android:layout_alignLeft="@+id/tvTitle"
                     android:layout_marginTop="4dp"
-                    android:layout_toRightOf="@id/ivAvatar"
-                    android:text="@{meal.username}"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="14sp"
-                    tools:text="Restaurant" />
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:progressTint="#faef24"
+                    android:rating="@{meal.numStars}"
+                    android:stepSize="0.1"
+                    tools:rating="3" />
             </RelativeLayout>
-
-            <android.support.v7.widget.AppCompatRatingBar
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/space_small"
-                android:layout_marginLeft="@dimen/space_small"
-                android:layout_marginRight="@dimen/space_small"
-                android:layout_marginTop="4dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressTint="#faef24"
-                android:rating="@{meal.numStars}"
-                android:stepSize="0.1"
-                tools:rating="3" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </layout>
