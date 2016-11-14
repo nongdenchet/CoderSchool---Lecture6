@@ -21,4 +21,12 @@
         <item name="colorPrimaryDark">@color/colorTransparent</item>
         <item name="android:windowSharedElementEnterTransition">@transition/user_detail_transition</item>
     </style>
+
+    <style name="TextInfo">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/size_normal</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
 </resources>

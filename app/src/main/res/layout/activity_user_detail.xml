@@ -1,91 +1,79 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="username" type="String"/>
-        <variable name="avatar" type="String"/>
+        <variable name="username" type="String" />
+        <variable name="avatar" type="String" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/main_content"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:fitsSystemWindows="true">
 
         <LinearLayout
-            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             android:orientation="vertical"
             android:paddingTop="24dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_marginTop="@dimen/space_normal"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_normal"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{avatar}"
                 android:transitionName="@string/transition_image"
+                app:imageUrl="@{avatar}"
                 tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tvUsername"
-                android:fontFamily="sans-serif-medium"
-                tools:text="Coder School"
-                android:text="@{username}"
-                android:layout_marginTop="4dp"
-                android:textSize="20sp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{username}"
+                android:textSize="20sp"
+                tools:text="Coder School" />
 
             <LinearLayout
                 android:id="@+id/infoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_small"
                 android:layout_marginBottom="@dimen/space_normal"
+                android:layout_marginTop="@dimen/space_small"
                 android:orientation="horizontal"
                 android:padding="@dimen/space_normal">
 
                 <TextView
+                    style="@style/TextInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
                     android:drawableTop="@drawable/ic_favorite"
-                    android:gravity="center"
-                    android:text="1280"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/size_normal" />
+                    android:text="1280" />
 
                 <TextView
+                    style="@style/TextInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
                     android:drawableTop="@drawable/ic_dinner"
-                    android:gravity="center"
-                    android:text="200"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/size_normal" />
+                    android:text="200" />
 
                 <TextView
+                    style="@style/TextInfo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
                     android:drawableTop="@drawable/ic_group"
-                    android:gravity="center"
-                    android:text="777"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/size_normal" />
+                    android:text="777" />
             </LinearLayout>
 
             <Button
@@ -93,20 +81,20 @@
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="32dp"
                 android:backgroundTint="@color/colorAccent"
                 android:drawableLeft="@drawable/ic_group_add"
                 android:elevation="2dp"
                 android:text="Follow"
-                android:layout_marginBottom="32dp"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvMeals"
-            app:behavior_peekHeight="256dp"
-            android:background="@android:color/white"
-            app:layout_behavior="@string/bottom_sheet_behavior"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:behavior_peekHeight="256dp"
+            app:layout_behavior="@string/bottom_sheet_behavior" />
     </android.support.design.widget.CoordinatorLayout>
 </layout>

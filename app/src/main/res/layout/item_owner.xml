@@ -23,40 +23,28 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/TextInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
                 android:drawableTop="@drawable/ic_favorite"
-                android:gravity="center"
-                android:text="1280"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/size_normal" />
+                android:text="1280" />
 
             <TextView
+                style="@style/TextInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
                 android:drawableTop="@drawable/ic_dinner"
-                android:gravity="center"
-                android:text="200"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/size_normal" />
+                android:text="200" />
 
             <TextView
+                style="@style/TextInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
                 android:drawableTop="@drawable/ic_star"
-                android:gravity="center"
-                android:text="777"
-                android:textColor="@color/colorSecondaryText"
-                android:textSize="@dimen/size_normal" />
+                android:text="777" />
         </LinearLayout>
 
         <RelativeLayout
