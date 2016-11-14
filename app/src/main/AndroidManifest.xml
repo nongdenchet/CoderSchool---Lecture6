@@ -25,5 +25,9 @@
         <activity
             android:name=".activity.UserDetailActivity"
             android:theme="@style/AppTheme.UserDetail" />
+        <activity
+            android:theme="@style/AppTheme.Transparent"
+            android:name=".activity.CartActivity"
+            android:label="Cart" />
     </application>
 </manifest>
