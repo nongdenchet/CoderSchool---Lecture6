@@ -19,5 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.MealDetailActivity"
+            android:theme="@style/AppTheme.MealDetail" />
+        <activity
+            android:name=".activity.UserDetailActivity"
+            android:theme="@style/AppTheme.UserDetail" />
     </application>
 </manifest>

@@ -1,10 +1,12 @@
 package apidez.com.animation.model;
 
+import java.io.Serializable;
+
 /**
  * Created by nongdenchet on 11/13/16.
  */
 
-public class Meal {
+public class Meal implements Serializable {
     private String title;
     private String image;
     private String username;
