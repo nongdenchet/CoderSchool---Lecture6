@@ -106,11 +106,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Subscribe
     public void onEvent(MealAdapter.OrderEvent event) {
+        int[] locations = new int[2];
+        event.imageView.getLocationOnScreen(locations);
+
         final View view = createTempView(event.imageView, event.image);
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(view,
-                View.X, view.getX(), fabLocations[0] - fab.getWidth());
+                View.X, locations[0], fabLocations[0] - fab.getWidth());
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(view,
-                View.Y, view.getY(), fabLocations[1] - fab.getHeight() * 2);
+                View.Y, locations[1], fabLocations[1] - fab.getHeight() * 2);
         animatorY.setInterpolator(new AccelerateInterpolator());
         ObjectAnimator animatorScaleX = ObjectAnimator.ofFloat(view,
                 View.SCALE_X, 1f, 0f);
@@ -139,14 +142,10 @@ public class MainActivity extends AppCompatActivity {
     public View createTempView(ImageView imageView, String url) {
         View rootView = LayoutInflater.from(this)
                 .inflate(R.layout.item_image, parent, true);
-        int[] locations = new int[2];
-        imageView.getLocationOnScreen(locations);
         ImageView view = (ImageView) rootView.findViewById(R.id.image);
         view.setLayoutParams(new RelativeLayout.LayoutParams(imageView.getWidth(),
                 imageView.getHeight()));
         BindingUtils.setImageUrl(view, url);
-        view.setX(locations[0]);
-        view.setY(locations[1]);
         return view;
     }
 }
