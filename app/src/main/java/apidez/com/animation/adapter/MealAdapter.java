@@ -91,8 +91,9 @@ public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         @OnClick(R.id.ivAvatar)
         public void onAvatarClick() {
-            EventBus.getDefault().post(new UserDetailEvent(mBinding.ivMeal,
-                    mBinding.getMeal().getUsername()));
+            EventBus.getDefault().post(new UserDetailEvent(mBinding.ivAvatar,
+                    mBinding.getMeal().getUsername(),
+                    mBinding.getMeal().getAvatar()));
         }
     }
 
@@ -109,10 +110,12 @@ public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class UserDetailEvent {
         public final ImageView imageView;
         public final String username;
+        public final String avatar;
 
-        public UserDetailEvent(ImageView imageView, String username) {
+        public UserDetailEvent(ImageView imageView, String username, String avatar) {
             this.imageView = imageView;
             this.username = username;
+            this.avatar = avatar;
         }
     }
 }

@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityOptionsCompat options = ActivityOptionsCompat
                 .makeSceneTransitionAnimation(this, event.imageView,
                         getString(R.string.transition_image));
-        startActivity(UserDetailActivity.getIntent(this, event.username), options.toBundle());
+        startActivity(UserDetailActivity.getIntent(this, event.username, event.avatar),
+                options.toBundle());
     }
 }

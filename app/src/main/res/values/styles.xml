@@ -17,6 +17,8 @@
     </style>
 
     <style name="AppTheme.UserDetail" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@color/colorTransparent</item>
+        <item name="colorPrimaryDark">@color/colorTransparent</item>
         <item name="android:windowSharedElementEnterTransition">@transition/user_detail_transition</item>
     </style>
 </resources>

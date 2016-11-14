@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <variable name="url" type="String"/>
+        <variable name="url" type="String" />
     </data>
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <ImageView
         android:id="@+id/image"
-        app:imageUrl="@{url}"
+        android:layout_margin="2dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="128dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:imageUrl="@{url}" />
 </layout>
