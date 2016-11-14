@@ -33,7 +33,7 @@ public class DataUtils {
             meals.add(new Meal("Title " + i,
                     images()[i % images().length],
                     "User " + i,
-                    "https://unsplash.it/480/320/?image=" + (200 - i),
+                    images()[i % images().length],
                     i % 5, i * 10, i * 100));
         }
         return meals;
@@ -43,7 +43,7 @@ public class DataUtils {
         List<Review> reviews = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             reviews.add(new Review("User " + i,
-                    "https://unsplash.it/480/320/?image=" + (200 - i),
+                    images()[i % images().length],
                     "This is a content " + i,
                     "12/08/2000",
                     i % 5));
