@@ -108,12 +108,13 @@ public class MainActivity extends AppCompatActivity {
     public void onEvent(MealAdapter.OrderEvent event) {
         int[] locations = new int[2];
         event.imageView.getLocationOnScreen(locations);
-
         final View view = createTempView(event.imageView, event.image);
+        view.setPivotX(0);
+        view.setPivotY(0);
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(view,
-                View.X, locations[0], fabLocations[0] - fab.getWidth());
+                View.X, locations[0], fabLocations[0] + fab.getWidth() / 2);
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(view,
-                View.Y, locations[1], fabLocations[1] - fab.getHeight() * 2);
+                View.Y, locations[1], fabLocations[1] + fab.getHeight() / 2);
         animatorY.setInterpolator(new AccelerateInterpolator());
         ObjectAnimator animatorScaleX = ObjectAnimator.ofFloat(view,
                 View.SCALE_X, 1f, 0f);
