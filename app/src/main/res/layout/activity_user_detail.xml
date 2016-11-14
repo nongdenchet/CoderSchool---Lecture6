@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="32dp"
             android:paddingTop="24dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -33,6 +32,7 @@
                 tools:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:id="@+id/tvUsername"
                 android:fontFamily="sans-serif-medium"
                 tools:text="Coder School"
                 android:text="@{username}"
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
+                android:id="@+id/infoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_small"
@@ -88,6 +89,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnFollow"
                 android:layout_width="128dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -95,6 +97,7 @@
                 android:drawableLeft="@drawable/ic_group_add"
                 android:elevation="2dp"
                 android:text="Follow"
+                android:layout_marginBottom="32dp"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import apidez.com.animation.R;
 import apidez.com.animation.adapter.ImageAdapter;
 import apidez.com.animation.databinding.ActivityUserDetailBinding;
+import apidez.com.animation.utils.AnimationUtils;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -30,6 +31,9 @@ public class UserDetailActivity extends AppCompatActivity {
     @Bind(R.id.rvMeals)
     RecyclerView rvMeals;
 
+    @Bind({R.id.tvUsername, R.id.btnFollow, R.id.infoContainer, R.id.rvMeals})
+    View[] views;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +45,6 @@ public class UserDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         rvMeals.setAdapter(new ImageAdapter());
         rvMeals.setLayoutManager(new GridLayoutManager(this, 2));
+        AnimationUtils.moveUp(views, 400);
     }
 }

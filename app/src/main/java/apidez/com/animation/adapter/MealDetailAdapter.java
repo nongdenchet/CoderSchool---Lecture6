@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import java.util.ArrayList;
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 import apidez.com.animation.R;
@@ -14,6 +16,9 @@ import apidez.com.animation.databinding.ItemOwnerBinding;
 import apidez.com.animation.databinding.ItemReviewBinding;
 import apidez.com.animation.model.Meal;
 import apidez.com.animation.model.Review;
+import apidez.com.animation.utils.DataUtils;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by nongdenchet on 11/14/16.
@@ -27,14 +32,7 @@ public class MealDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public MealDetailAdapter(Meal meal) {
         mMeal = meal;
-        mReviews = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            mReviews.add(new Review("User " + i,
-                    "https://unsplash.it/480/320/?image=" + (200 - i),
-                    "This is a content " + i,
-                    "12/08/2000",
-                    i % 5));
-        }
+        mReviews = DataUtils.reviews();
     }
 
     @Override
@@ -65,11 +63,19 @@ public class MealDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
             mBinding = DataBindingUtil.bind(itemView);
         }
 
         public void bind(Meal meal) {
             mBinding.setMeal(meal);
+        }
+
+        @OnClick(R.id.ivAvatar)
+        public void onAvatarClick() {
+            EventBus.getDefault().post(new UserDetailEvent(mBinding.ivAvatar,
+                    mBinding.getMeal().getUsername(),
+                    mBinding.getMeal().getAvatar()));
         }
     }
 
@@ -97,5 +103,17 @@ public class MealDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount() {
         return mReviews.size() + 1;
+    }
+
+    public class UserDetailEvent {
+        public final ImageView imageView;
+        public final String username;
+        public final String avatar;
+
+        public UserDetailEvent(ImageView imageView, String username, String avatar) {
+            this.imageView = imageView;
+            this.username = username;
+            this.avatar = avatar;
+        }
     }
 }
