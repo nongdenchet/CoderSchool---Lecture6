@@ -25,7 +25,7 @@ import butterknife.OnClick;
 public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Meal> mMeals;
     private String[] mImages = new String[]{
-            "http://www.taste.com.au/mImages/recipes/del/2008/05/seafood-risotto-14581_l.jpeg",
+            "http://images.media-allrecipes.com/images/50717.jpg",
             "https://i.ytimg.com/vi/u1w7zqbBiXM/maxresdefault.jpg",
             "http://www.bonappetit.com/wp-content/uploads/2013/08/grilled-ratatouille-salad-646.jpeg",
             "http://app.cookingmatters.org/sites/default/files/sos-img/Ratatouille.jpg",
@@ -71,28 +71,28 @@ public class MealAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ItemMealBinding binding;
+        private ItemMealBinding mBinding;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            binding = DataBindingUtil.bind(itemView);
+            mBinding = DataBindingUtil.bind(itemView);
         }
 
         public void bind(Meal meal) {
-            binding.setMeal(meal);
+            mBinding.setMeal(meal);
         }
 
         @OnClick(R.id.container)
         public void onItemClick() {
-            EventBus.getDefault().post(new MealDetailEvent(binding.ivMeal,
-                    binding.getMeal()));
+            EventBus.getDefault().post(new MealDetailEvent(mBinding.ivMeal,
+                    mBinding.getMeal()));
         }
 
         @OnClick(R.id.ivAvatar)
         public void onAvatarClick() {
-            EventBus.getDefault().post(new UserDetailEvent(binding.ivMeal,
-                    binding.getMeal().getUsername()));
+            EventBus.getDefault().post(new UserDetailEvent(mBinding.ivMeal,
+                    mBinding.getMeal().getUsername()));
         }
     }
 

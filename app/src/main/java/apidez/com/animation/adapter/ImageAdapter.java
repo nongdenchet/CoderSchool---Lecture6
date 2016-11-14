@@ -17,7 +17,7 @@ import butterknife.OnClick;
 
 public class ImageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String[] images = new String[]{
-            "http://www.taste.com.au/images/recipes/del/2008/05/seafood-risotto-14581_l.jpeg",
+            "http://images.media-allrecipes.com/images/50717.jpg",
             "https://i.ytimg.com/vi/u1w7zqbBiXM/maxresdefault.jpg",
             "http://www.bonappetit.com/wp-content/uploads/2013/08/grilled-ratatouille-salad-646.jpeg",
             "http://app.cookingmatters.org/sites/default/files/sos-img/Ratatouille.jpg",

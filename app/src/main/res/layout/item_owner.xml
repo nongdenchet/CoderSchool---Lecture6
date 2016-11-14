@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <data>
+        <import type="apidez.com.animation.model.Meal" />
+        <variable name="meal" type="Meal" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/space_normal"
+        android:paddingLeft="@dimen/space_normal"
+        android:paddingRight="@dimen/space_normal"
+        android:paddingTop="@dimen/space_normal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_favorite"
+                android:gravity="center"
+                android:text="1280"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/size_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_dinner"
+                android:gravity="center"
+                android:text="200"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/size_normal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:drawableTop="@drawable/ic_star"
+                android:gravity="center"
+                android:text="777"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/size_normal" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_normal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                app:imageUrl="@{meal.avatar}" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ivAvatar"
+                android:layout_marginRight="@dimen/space_small"
+                android:layout_toLeftOf="@id/ivAvatar"
+                android:background="?selectableItemBackground"
+                android:text="CoderSchool"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/size_normal" />
+
+            <TextView
+                android:id="@+id/tvRestaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_marginRight="@dimen/space_small"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@id/ivAvatar"
+                android:text="12/08/2010"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_marginTop="@dimen/space_normal"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"/>
+    </LinearLayout>
+</layout>

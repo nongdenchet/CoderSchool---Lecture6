@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="apidez.com.animation.model.Review" />
+        <variable name="review" type="Review" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:clickable="true"
+        android:background="?selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/space_normal"
+        android:paddingRight="@dimen/space_normal"
+        android:paddingTop="@dimen/space_normal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/space_small"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{review.avatar}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_small"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_toLeftOf="@+id/tvDate"
+            android:layout_toRightOf="@id/ivAvatar"
+            android:gravity="left"
+            android:text="@{review.username}"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/size_normal"
+            tools:text="Card Title" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/space_small"
+            android:text="@{review.date}"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            tools:text="12/08/2010" />
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUsername"
+            android:layout_marginLeft="@dimen/space_small"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/ivAvatar"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="#faef24"
+            android:rating="@{review.numStars}"
+            android:stepSize="0.1"
+            tools:rating="3" />
+
+        <View
+            android:layout_alignLeft="@+id/rating"
+            android:layout_below="@id/ivAvatar"
+            android:layout_marginTop="@dimen/space_normal"
+            android:background="@color/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"/>
+    </RelativeLayout>
+</layout>
