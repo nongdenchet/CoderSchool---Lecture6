@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        ViewTarget.setTagId(R.id.glide_tag);
         rvMeals.setAdapter(new MealAdapter());
         rvMeals.setLayoutManager(new GridLayoutManager(this, 2));
         fab.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
