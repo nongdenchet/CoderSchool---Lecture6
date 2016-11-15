@@ -12,6 +12,8 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 
 import org.greenrobot.eventbus.EventBus;
@@ -32,6 +34,9 @@ public class MealDetailActivity extends AppCompatActivity {
     @Bind(R.id.rvContent)
     RecyclerView rvContent;
 
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+
     @Bind(R.id.fab)
     FloatingActionButton fab;
 
@@ -50,6 +55,23 @@ public class MealDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         rvContent.setAdapter(new MealDetailAdapter(meal));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
+        setUpToolbar();
+        setUpFab();
+    }
+
+    private void setUpToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
+    private void setUpFab() {
         mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
             @Override

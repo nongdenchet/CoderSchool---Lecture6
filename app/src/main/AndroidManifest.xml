@@ -6,14 +6,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".App"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +24,16 @@
         </activity>
         <activity
             android:name=".activity.MealDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.MealDetail" />
         <activity
             android:name=".activity.UserDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.UserDetail" />
         <activity
-            android:theme="@style/AppTheme.Transparent"
             android:name=".activity.CartActivity"
-            android:label="Cart" />
+            android:label="Cart"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
     </application>
 </manifest>
