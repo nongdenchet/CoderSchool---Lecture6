@@ -1,13 +1,18 @@
 package apidez.com.animation.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.AccelerateInterpolator;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -22,9 +27,13 @@ import butterknife.ButterKnife;
 public class MealDetailActivity extends AppCompatActivity {
     private static final String MEAL = "meal";
     private ActivityMealDetailBinding mBinding;
+    private Handler mHandler;
 
     @Bind(R.id.rvContent)
     RecyclerView rvContent;
+
+    @Bind(R.id.fab)
+    FloatingActionButton fab;
 
     public static Intent getIntent(Context context, Meal meal) {
         Intent intent = new Intent(context, MealDetailActivity.class);
@@ -41,6 +50,13 @@ public class MealDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         rvContent.setAdapter(new MealDetailAdapter(meal));
         rvContent.setLayoutManager(new LinearLayoutManager(this));
+        mHandler = new Handler();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                fab.show();
+            }
+        }, 500);
     }
 
     @Override
@@ -62,5 +78,21 @@ public class MealDetailActivity extends AppCompatActivity {
                         getString(R.string.transition_image));
         startActivity(UserDetailActivity.getIntent(this, event.username, event.avatar),
                 options.toBundle());
+    }
+
+    @Override
+    public void onBackPressed() {
+        fab.animate().alpha(0)
+                .scaleX(0)
+                .scaleY(0)
+                .setDuration(300)
+                .setInterpolator(new AccelerateInterpolator())
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        MealDetailActivity.super.onBackPressed();
+                    }
+                })
+                .start();
     }
 }
