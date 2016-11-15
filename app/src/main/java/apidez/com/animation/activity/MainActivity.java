@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onAnimationStart(Animator animation) {
                         super.onAnimationStart(animation);
                         fab.show();
+                        parent.addView(cloneView);
                     }
 
                     @Override
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     public View cloneView(ImageView imageView, String url) {
         View rootView = LayoutInflater.from(this)
-                .inflate(R.layout.item_image, parent, true);
+                .inflate(R.layout.item_image, parent, false);
         ImageView view = (ImageView) rootView.findViewById(R.id.image);
         view.setLayoutParams(new RelativeLayout.LayoutParams(imageView.getWidth(),
                 imageView.getHeight()));
