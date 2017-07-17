@@ -44,7 +44,7 @@ public class CartActivity extends AppCompatActivity {
                     @Override
                     public void onGlobalLayout() {
                         enterReveal();
-                        fab.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        parent.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
     }
